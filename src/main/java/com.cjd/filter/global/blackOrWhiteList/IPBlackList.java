@@ -20,7 +20,7 @@ import java.util.Map;
 
 @Configuration
 public class IPBlackList implements GlobalFilter, Ordered {
-    private Logger logger = LoggerFactory.getLogger("ModifyRequestParamsGatewayFilterFactory");
+    private Logger logger = LoggerFactory.getLogger("IPBlackList");
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

@@ -49,6 +49,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        LOGGER.info("request in GlobalFilter of AuthFilter----order:"+getOrder());
         String url = exchange.getRequest().getURI().getPath();
         //跳过不需要验证的路径
         if(Arrays.asList(skipAuthUrls).contains(url)){

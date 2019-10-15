@@ -20,7 +20,7 @@ import java.util.Map;
 
 @Configuration
 public class IPWhiteList implements GlobalFilter, Ordered {
-    private Logger logger = LoggerFactory.getLogger("ModifyRequestParamsGatewayFilterFactory");
+    private Logger logger = LoggerFactory.getLogger("IPWhiteList");
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         logger.info("request in GlobalFilter of IPWhiteList---order:"+getOrder());
@@ -49,6 +49,6 @@ public class IPWhiteList implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return 5;
+        return 2;
     }
 }

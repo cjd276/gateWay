@@ -16,56 +16,56 @@ spring:
     name: gateWay
   cloud:
     gateway:
-      default-filters:
-        - name: Hystrix
-          args:
-            name: fallbackcmd
-            fallbackUri: forward:/fallback?a=123
-      routes:
-        - id: fldRoute
-          #服务名称配置，如果是与eureka结合则是eureka上的注册的服务民称
-          #这时会使用eureka的服务发现功能
-          uri: lb://fdl
-          predicates:
-            #基于Path的路由
-            - Path=/service/**
-            #基于Host的路由
-            - Host=127.0.0.1
-#            #基于时间后
-#            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
-#            #基于时间前
-#            - Before=2017-01-20T17:42:47.789-07:00[America/Denver]
-#            #基于时间段
-#            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2017-01-21T17:42:47.789-07:00[America/Denver]
-#            #基于cookie 的key,value的正则校验
-#            - Cookie=chocolate, ch.p
-#            #基于header 的key,value的正则校验
-#            - Header=X-Request-Id, \d+
-#            #基于method方式
-#            - Method=GET
-#            #基于查询参数的 key，与value 的正则校验
-#            - Query=foo, ba.
-#            #基于远程地址
-#            - RemoteAddr=192.168.1.1/24
-#            #基于权重【针对这个id的路由，同一个ID 一个20% 1个80%】
-#            - Weight=group1, 2
-          filters:
-            #忽略一级目录
-            - StripPrefix=1
-            #断路由器配置，forward 的uri可以是网关内部也可以再次转发到外部
-            - name: Hystrix
-              args:
-                name: fallbackcmd
-                fallbackUri: forward:/fallback?a=123
-            - name: ModifyRequestParams
-            #基于redis 令牌桶算法的限流
-            - name: RequestRateLimiter
-              args:
-                #每秒钟 请求数限制
-                redis-rate-limiter.replenishRate: 20
-                #令牌桶 数量TPS
-                redis-rate-limiter.burstCapacity: 120
-                key-resolver: "#{@ipAddressKeyResolver}"
+#      default-filters:
+#        - name: Hystrix
+#          args:
+#            name: fallbackcmd
+#            fallbackUri: forward:/fallback?a=123
+#      routes:
+#        - id: fldRoute
+#          #服务名称配置，如果是与eureka结合则是eureka上的注册的服务民称
+#          #这时会使用eureka的服务发现功能
+#          uri: lb://fdl
+#          predicates:
+#            #基于Path的路由
+#            - Path=/service/**
+#            #基于Host的路由
+#            - Host=127.0.0.1
+##            #基于时间后
+##            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+##            #基于时间前
+##            - Before=2017-01-20T17:42:47.789-07:00[America/Denver]
+##            #基于时间段
+##            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2017-01-21T17:42:47.789-07:00[America/Denver]
+##            #基于cookie 的key,value的正则校验
+##            - Cookie=chocolate, ch.p
+##            #基于header 的key,value的正则校验
+##            - Header=X-Request-Id, \d+
+##            #基于method方式
+##            - Method=GET
+##            #基于查询参数的 key，与value 的正则校验
+##            - Query=foo, ba.
+##            #基于远程地址
+##            - RemoteAddr=192.168.1.1/24
+##            #基于权重【针对这个id的路由，同一个ID 一个20% 1个80%】
+##            - Weight=group1, 2
+#          filters:
+#            #忽略一级目录
+#            - StripPrefix=1
+#            #断路由器配置，forward 的uri可以是网关内部也可以再次转发到外部
+#            - name: Hystrix
+#              args:
+#                name: fallbackcmd
+#                fallbackUri: forward:/fallback?a=123
+#            - name: ModifyRequestParams
+#            #基于redis 令牌桶算法的限流
+#            - name: RequestRateLimiter
+#              args:
+#                #每秒钟 请求数限制
+#                redis-rate-limiter.replenishRate: 20
+#                #令牌桶 数量TPS
+#                redis-rate-limiter.burstCapacity: 120
+#                key-resolver: "#{@ipAddressKeyResolver}"
       loadbalancer:
         use404: true
       #全局跨域配置
@@ -82,21 +82,25 @@ spring:
 ribbon:
   eureka:
     enabled: false
-fdl:
-  ribbon:
-    # 服务列表
-    listOfServers: localhost:8081,localhost:8082,localhost:8083
-    # 10s
-    ConnectTimeout: 10000
-    # 10min
-    ReadTimeout: 600000
-    # 最大的连接
-    MaxTotalHttpConnections: 500
-    # 每个实例的最大连接
-    MaxConnectionsPerHost: 300
-    ##负载均衡策略类，可以自定义
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+#fdl:
+#  ribbon:
+#    # 服务列表
+#    listOfServers: localhost:8081,localhost:8082,localhost:8083
+#    # 10s
+#    ConnectTimeout: 10000
+#    # 10min
+#    ReadTimeout: 600000
+#    # 最大的连接
+#    MaxTotalHttpConnections: 500
+#    # 每个实例的最大连接
+#    MaxConnectionsPerHost: 300
+#    # 负载均衡策略类，可以自定义
+##   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
 #    NFLoadBalancerRuleClassName: com.cjd.loadbalancer.AviliableResponseBalancer
+#    # 服务可用性探测时间间隔
+#    NFLoadBalancerPingInterval: 2
+#    # PING服务可用性
+#    NFLoadBalancerPingClassName: com.cjd.loadbalancer.PingUrl
 debug: true
 
 

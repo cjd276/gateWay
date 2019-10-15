@@ -14,8 +14,10 @@ public class AviliableResponseBalancer  extends AbstractLoadBalancerRule {
 
     @Override
     public Server choose(Object o) {
+        List<Server> serverList1 = this.getLoadBalancer().getReachableServers();
         List<Server> serverList =  this.getLoadBalancer().getAllServers();
         for (Server server:serverList){
+            System.out.println(server.getId() + server.isAlive());
             System.out.println(server.getHost() + ":" +server.isAlive());
             if (server.isAlive()){
                 return server;
