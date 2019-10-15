@@ -116,6 +116,8 @@ public class InitRouteService {
         FilterDefinition requestRateLimiterFilter = new FilterDefinition();
         requestRateLimiterFilter.setName("RequestRateLimiter");
         requestRateLimiterFilter.addArg("keyResolver","#{@ipAddressKeyResolver}");
+        requestRateLimiterFilter.addArg("redis-rate-limiter.replenishRate","1");
+        requestRateLimiterFilter.addArg("redis-rate-limiter.burstCapacity","1");
 
         //ModifyRequestParamsGatewayFilterFactory
         FilterDefinition modifyRequestParamsFilter = new FilterDefinition();
@@ -129,7 +131,7 @@ public class InitRouteService {
 
 
 
-        definition.setFilters(Arrays.asList(stripPrefixFilter, hystrixFilter,modifyRequestParamsFilter));
+        definition.setFilters(Arrays.asList(stripPrefixFilter, hystrixFilter,modifyRequestParamsFilter,requestRateLimiterFilter));
 
 
         routeDefinitions.add(definition);

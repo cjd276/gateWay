@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class PingUrl implements IPing {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AuthFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PingUrl.class);
     public boolean isAlive(Server server) {
 
         String urlStr   = "http://" + server.getId();
