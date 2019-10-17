@@ -1,12 +1,15 @@
 package com.cjd.service;
 
+import com.cjd.dao.RouteDefinitionMapper;
+import com.cjd.entity.MyFilterArgs;
+import com.cjd.entity.MyPredicateArgs;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.handler.predicate.PredicateDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import javax.annotation.PostConstruct;
 import java.net.URI;
 import java.util.*;
@@ -19,6 +22,12 @@ import java.util.*;
 @Service
 public class InitRouteService {
 
+    private Gson gson = new Gson();
+
+    @Autowired
+    private RouteDefinitionMapper routeDefinitionMapper;
+
+
     @Autowired
     private DynamicRouteService dynamicRouteService;
 
@@ -27,8 +36,71 @@ public class InitRouteService {
         dynamicRouteService.addAll(getRouteDefinitions());
     }
 
-
     List<RouteDefinition>   getRouteDefinitions(){
+
+        List<Map> routes = routeDefinitionMapper.getRouteDefinition(1);
+
+        List<RouteDefinition>  routeDefinitions = new ArrayList<>();
+
+
+        for (Map route:routes){
+            /*****************RouteDefinition************************/
+            Object id = route.get("rd_id");
+            Object uriStr = route.get("rd_uri");
+            Object order = route.get("rd_order");
+            RouteDefinition definition = new RouteDefinition();
+            URI uri = UriComponentsBuilder.fromUriString(uriStr.toString()).build().toUri();
+            definition.setId(id.toString());
+            definition.setUri(uri);
+            definition.setOrder(Integer.parseInt(order.toString()));
+            /*****************RoutePredicateFactory***************/
+            List<PredicateDefinition> predicateDefinitions = new ArrayList<>();
+            List<Map> predicates = routeDefinitionMapper.getPredicate(1,Integer.parseInt(id.toString()));
+            for (Map predicateArgs:predicates){
+                String name = predicateArgs.get("name").toString();
+                String args = predicateArgs.get("args").toString();
+
+                PredicateDefinition predicate = new PredicateDefinition();
+                predicate.setName(name);
+                List<MyPredicateArgs> argsObject = (List<MyPredicateArgs>)gson.fromJson(args, MyPredicateArgs.class);
+
+                for (MyPredicateArgs arg:argsObject){
+                    predicate.addArg(arg.getArgKey(), arg.getArgValue());
+                }
+
+                predicateDefinitions.add(predicate);
+
+            }
+            definition.setPredicates(predicateDefinitions);
+
+
+            /*****************FilterDefinition***************/
+            List<FilterDefinition> filterDefinitions = new ArrayList<>();
+            List<Map> filters = routeDefinitionMapper.getFilterDefinition(1,Integer.parseInt(id.toString()));
+            for (Map filterArgs:filters){
+                String name = filterArgs.get("name").toString();
+                String args = filterArgs.get("args").toString();
+
+                FilterDefinition filter = new FilterDefinition();
+                filter.setName(name);
+                List<MyFilterArgs> argsObject = (List<MyFilterArgs>)gson.fromJson(args, MyFilterArgs.class);
+
+                for (MyFilterArgs arg:argsObject){
+                    filter.addArg(arg.getArgKey(), arg.getArgValue());
+                }
+
+                filterDefinitions.add(filter);
+
+            }
+            definition.setFilters(filterDefinitions);
+            routeDefinitions.add(definition);
+        }
+        return routeDefinitions;
+    }
+
+
+
+    /*List<RouteDefinition>   getRouteDefinitions(){
 
         List<RouteDefinition>  routeDefinitions = new ArrayList<>();
 
@@ -138,7 +210,7 @@ public class InitRouteService {
 
 
         return routeDefinitions;
-    }
+    }*/
 
 
 
