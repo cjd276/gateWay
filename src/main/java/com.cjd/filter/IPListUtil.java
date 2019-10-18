@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * @author hello_史努比
  * @version
  */
-public class IPWhiteListUtil {
+public class IPListUtil {
     // IP的正则
     private static Pattern pattern = Pattern
             .compile("(1\\d{1,2}|2[0-4]\\d|25[0-5]|\\d{1,2})\\."
@@ -146,7 +146,7 @@ public class IPWhiteListUtil {
      * @param ipList
      * @return
      */
-    private static boolean checkLoginIP(String ip, Set<String> ipList) {
+    public static boolean checkLoginIP(String ip, Set<String> ipList) {
         if (ipList.isEmpty() || ipList.contains(ip))
             return true;
         else {

@@ -4,6 +4,7 @@ import com.cjd.dao.RouteDefinitionMapper;
 import com.cjd.entity.MyFilterArgs;
 import com.cjd.entity.MyPredicateArgs;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.handler.predicate.PredicateDefinition;
@@ -62,7 +63,7 @@ public class InitRouteService {
 
                 PredicateDefinition predicate = new PredicateDefinition();
                 predicate.setName(name);
-                List<MyPredicateArgs> argsObject = (List<MyPredicateArgs>)gson.fromJson(args, MyPredicateArgs.class);
+                List<MyPredicateArgs> argsObject = gson.fromJson(args,new TypeToken<List<MyPredicateArgs>>() {}.getType());
 
                 for (MyPredicateArgs arg:argsObject){
                     predicate.addArg(arg.getArgKey(), arg.getArgValue());
@@ -83,7 +84,7 @@ public class InitRouteService {
 
                 FilterDefinition filter = new FilterDefinition();
                 filter.setName(name);
-                List<MyFilterArgs> argsObject = (List<MyFilterArgs>)gson.fromJson(args, MyFilterArgs.class);
+                List<MyFilterArgs> argsObject = gson.fromJson(args,new TypeToken<List<MyFilterArgs>>() {}.getType());
 
                 for (MyFilterArgs arg:argsObject){
                     filter.addArg(arg.getArgKey(), arg.getArgValue());

@@ -1,9 +1,11 @@
 package com.cjd.filter.global.blackOrWhiteList;
 
-import com.cjd.filter.IPWhiteListUtil;
+import com.cjd.dao.IPMapper;
+import com.cjd.filter.IPListUtil;
 import com.cjd.filter.IPUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Configuration;
@@ -17,30 +19,26 @@ import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @Configuration
-public class IPWhiteList implements GlobalFilter, Ordered {
+public class IPWhiteList extends BaseIpResponse implements GlobalFilter, Ordered {
     private Logger logger = LoggerFactory.getLogger("IPWhiteList");
+    @Autowired
+    private IPMapper ipMapper;
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         logger.info("request in GlobalFilter of IPWhiteList---order:"+getOrder());
         ServerHttpRequest request = exchange.getRequest();
         String ip = IPUtil.getIpAddress(request);
 
-        boolean isAllowed = IPWhiteListUtil.checkLoginIP(ip,"127.0.0.1");
+        Set<String> whites = ipMapper.getIpWhiteList();
 
+        boolean isAllowed = IPListUtil.checkLoginIP(ip,whites);
         if (!isAllowed){
-            ServerHttpResponse response = exchange.getResponse();
-            Map<String,Object> res = new HashMap<>();
-            res.put("code",401);
-            res.put("msg","禁止访问");
-
-            DataBuffer buffer = response.bufferFactory().wrap(res.toString().getBytes());
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            response.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
-            return response.writeWith(Mono.just(buffer));
+            return getResponse(exchange);
         }
-
         return chain.filter(exchange);
     }
 
