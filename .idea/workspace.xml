@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3326fa24-e251-4437-94d9-0a778920c5d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.cjd/dao/IPMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.cjd/filter/ModifyRequestParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.cjd/filter/global/blackOrWhiteList/BaseIpResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.cjd/filter/IPWhiteListUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.cjd/filter/IPListUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.cjd/filter/gateway/request/ModifyRequestParamsGatewayFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.cjd/filter/gateway/request/ModifyRequestParamsGatewayFilterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.cjd/filter/global/blackOrWhiteList/IPBlackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.cjd/filter/global/blackOrWhiteList/IPBlackList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.cjd/filter/global/blackOrWhiteList/IPWhiteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.cjd/filter/global/blackOrWhiteList/IPWhiteList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.cjd/filter/global/request/ModifyRequestParamsGlobalFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.cjd/filter/global/request/ModifyRequestParamsGlobalFilterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.cjd/service/InitRouteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.cjd/service/InitRouteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cjd/filter/IPWhiteListUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cjd/filter/global/blackOrWhiteList/IPBlackList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cjd/filter/global/blackOrWhiteList/IPBlackList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cjd/filter/global/blackOrWhiteList/IPWhiteList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cjd/filter/global/blackOrWhiteList/IPWhiteList.class" afterDir="false" />
-    </list>
+    <list default="true" id="3326fa24-e251-4437-94d9-0a778920c5d2" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,8 +86,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.cjd/filter/gateway/request/ModifyRequestParamsGatewayFilterFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+            <state relative-caret-position="50">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -286,94 +275,6 @@
               <item name="gateWay" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-              <item name="gateway" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-              <item name="gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="request" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
-              <item name="request" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-              <item name="limit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="loadbalancer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.cjd" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gateWay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gateWay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -447,15 +348,16 @@
       <workItem from="1568959889259" duration="20572000" />
       <workItem from="1569319944934" duration="28145000" />
       <workItem from="1570496274408" duration="8713000" />
-      <workItem from="1571023541214" duration="41876000" />
+      <workItem from="1571023541214" duration="42103000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99306000" />
+    <option name="totallyTimeSpent" value="99533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -463,7 +365,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.22039072" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.22039072" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
@@ -476,7 +378,7 @@
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32959184" />
       <window_info anchor="bottom" id="Run" order="10" weight="0.527551" />
-      <window_info active="true" anchor="bottom" id="Debug" order="11" visible="true" weight="0.64387757" />
+      <window_info anchor="bottom" id="Debug" order="11" visible="true" weight="0.5602041" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="14" />
@@ -950,8 +852,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.cjd/filter/gateway/request/ModifyRequestParamsGatewayFilterFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        <state relative-caret-position="50">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
